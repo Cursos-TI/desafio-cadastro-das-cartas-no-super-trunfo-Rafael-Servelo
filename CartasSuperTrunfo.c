@@ -1,30 +1,27 @@
 #include <stdio.h>
+#include <windows.h>
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
 
 int main()
 {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+    SetConsoleOutputCP(CP_UTF8); // Força a saída do console para UTF-8
+    // Variáveis para armazenar os dados das cartas
 
     // Variaveis da Carta 1
     char estado_1, codigo_1[4], cidade_1[50];
     int populacao_1, turistico_1;
-    float area_1, pib_1, densidadePopulacional_1, PIBPerCapita_1;
+    float area_1, pib_1, densidadePopulacional_1, PIBPerCapita_1, SuperPoder_1;
 
     // Variaveis da Carta 2
     char estado_2, codigo_2[4], cidade_2[50];
     int populacao_2, turistico_2;
-    float area_2, pib_2, densidadePopulacional_2, PIBPerCapita_2;
+    float area_2, pib_2, densidadePopulacional_2, PIBPerCapita_2, SuperPoder_2;
 
     // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
 
-    // Instruções para o usuário
+    // Cadastro da carta 1
     printf("Cadastro da Carta 1:\n");
 
     // Leitura dos dados da carta 1
@@ -74,17 +71,19 @@ int main()
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &turistico_2);
 
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
-    // Tratamento para calcular a Densidade Populacional e o PIB per Capita
+    // Tratamento para calcular a Densidade Populacional e o PIB per Capita da Carta 1
     densidadePopulacional_1 = populacao_1 / area_1;
     PIBPerCapita_1 = (pib_1 * 1000000000) / populacao_1;
+    SuperPoder_1 = (float)populacao_1 + area_1 + pib_1 + (float)turistico_1 + PIBPerCapita_1 + (1.0 / densidadePopulacional_1); // Exemplo de Super Poder baseado na soma de atributos
+    // Tratamento para calcular a Densidade Populacional e o PIB per Capita da Carta 2
     densidadePopulacional_2 = populacao_2 / area_2;
     PIBPerCapita_2 = (pib_2 * 1000000000) / populacao_2;
+    SuperPoder_2 = (float)populacao_2 + area_2 + pib_2 + (float)turistico_2 + PIBPerCapita_2 + (1.0 / densidadePopulacional_2); // Exemplo de Super Poder baseado na soma de atributos
 
     // Exibindo os dados cadastrados de forma organizada
+    printf("\nDados das Cartas Cadastradas:\n\n");
+
+    // Exibição dos Dados da Carta 1:
     printf("\nCarta 1:\n");
     printf("Estado: %c\n", estado_1);
     printf("Código: %s\n", codigo_1);
@@ -95,7 +94,9 @@ int main()
     printf("Número de Pontos Turísticos: %d\n", turistico_1);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional_1);
     printf("PIB per Capita: %.2f reais\n", PIBPerCapita_1);
+    printf("Super Poder: %.2f\n", SuperPoder_1);
 
+    // Exibição dos Dados da Carta 2:
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", estado_2);
     printf("Código: %s\n", codigo_2);
@@ -106,6 +107,7 @@ int main()
     printf("Número de Pontos Turísticos: %d\n", turistico_2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional_2);
     printf("PIB per Capita: %.2f reais\n", PIBPerCapita_2);
+    printf("Super Poder: %.2f\n", SuperPoder_2);
 
     return 0;
 }
